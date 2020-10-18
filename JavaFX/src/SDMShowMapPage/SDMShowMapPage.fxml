@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mapBorderPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SDMShowMapPage.SDMShowMapPageController">
+   <top>
+      <Text styleClass="header" strokeType="OUTSIDE" strokeWidth="0.0" text="Map" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+   </top>
+   <center>
+      <ScrollPane fx:id="mapScrollPane" fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+         <content>
+            <GridPane fx:id="mapGrid" alignment="CENTER">
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

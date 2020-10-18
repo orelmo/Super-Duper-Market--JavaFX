@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" stylesheets="@SDMNewOrderPage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SDMNewOrderPage.SDMNewOrderPageController">
+   <content>
+      <GridPane minWidth="600.0" prefHeight="600.0" prefWidth="900.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="NEVER" />
+          <RowConstraints minHeight="80.0" prefHeight="80.0" vgrow="NEVER" />
+          <RowConstraints minHeight="80.0" prefHeight="80.0" vgrow="NEVER" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="35.0" valignment="CENTER" vgrow="NEVER" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER" GridPane.columnSpan="2147483647">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="New Order">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" spacing="5.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Customer:" />
+                  <ComboBox fx:id="customersComboBox" onAction="#onCustomerSelected" promptText="Select Customer" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Arrival Date:" />
+                  <DatePicker fx:id="arrivalDatePicker" onAction="#onDateSelected" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.rowIndex="2">
+               <children>
+                  <Label text="Order Type:" />
+                  <RadioButton fx:id="staticOrderRadioButton" mnemonicParsing="false" onAction="#onStaticOrder" text="Static Order" textAlignment="CENTER">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="orderTypeGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="dynamicOrderRadioButton" mnemonicParsing="false" onAction="#onDynamicOrder" text="Dynamic Order" toggleGroup="$orderTypeGroup" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefWidth="600.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label text="Store:" />
+                  <ComboBox fx:id="storesComboBox" disable="true" onAction="#onStoreSelected" promptText="Select Store" />
+                  <Label fx:id="deliveryPriceLabel" text="Delivery Price:" visible="false" />
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </VBox>
+            <ScrollPane fx:id="tableViewScrollPane" fitToHeight="true" fitToWidth="true" GridPane.columnSpan="3" GridPane.rowIndex="3">
+               <content>
+                  <TableView fx:id="itemsTableView" minWidth="500.0" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="nameColumn" prefWidth="75.0" styleClass="TableColumn" text="Name" />
+                      <TableColumn fx:id="idColumn" prefWidth="75.0" styleClass="TableColumn" text="Id" />
+                        <TableColumn fx:id="purchaseCategoryColumn" minWidth="25.0" prefWidth="112.79998779296875" styleClass="TableColumn" text="Purchase Category" />
+                        <TableColumn fx:id="priceColumn" prefWidth="86.4000244140625" styleClass="TableColumn" text="Price" />
+                        <TableColumn fx:id="amountColumn" prefWidth="75.0" styleClass="TableColumn" text="Amount" />
+                        <TableColumn fx:id="totalPriceColumn" prefWidth="75.0" styleClass="TableColumn" text="Total Price" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </content>
+            </ScrollPane>
+            <VBox alignment="CENTER" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+               <children>
+                  <Button fx:id="finishOrderButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onFinishOrder" text="Finish Order" />
+               </children>
+               <GridPane.margin>
+                  <Insets top="7.0" />
+               </GridPane.margin>
+            </VBox>
+            <ScrollPane fx:id="suppliersScrollPane" fitToHeight="true" fitToWidth="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <content>
+                  <VBox>
+                     <children>
+                        <Label text="Suppliers:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Accordion fx:id="suppliersAccordion" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Label styleClass="h2" text="Animations:" />
+                  <ComboBox fx:id="animationsComboBox" prefWidth="150.0" promptText="On / Off" />
+               </children>
+            </VBox>
+            <AnchorPane fx:id="animationAnchorPane" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="80.0" fitWidth="91.0" layoutX="190.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animation/Resources/CartIcon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="bottleImage" fitHeight="27.0" fitWidth="30.0" layoutX="7.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Animation/Resources/BottleIcon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+         </padding>
+      </GridPane>
+   </content>
+</ScrollPane>

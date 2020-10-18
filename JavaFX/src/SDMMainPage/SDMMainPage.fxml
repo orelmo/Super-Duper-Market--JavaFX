@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane minHeight="100.0" minWidth="185.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SDMMainPage.SDMMainPageController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="fileButton" mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="loadXMLButton" mnemonicParsing="false" onAction="#loadXmlFile" text="Load XML" />
+                  <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exit" text="Exit" />
+            </items>
+          </Menu>
+          <Menu fx:id="showButton" disable="true" mnemonicParsing="false" text="Show">
+            <items>
+              <MenuItem fx:id="showStoresButton" mnemonicParsing="false" onAction="#showStores" text="Stores" />
+                  <MenuItem fx:id="showItemsButton" mnemonicParsing="false" onAction="#showSystemItems" text="Items" />
+                  <MenuItem fx:id="showOrderHistoryButton" mnemonicParsing="false" onAction="#showOrderHistory" text="Order history" />
+                  <MenuItem fx:id="showCostumersButton" mnemonicParsing="false" onAction="#showCostumers" text="Costumers" />
+                  <MenuItem mnemonicParsing="false" onAction="#onShowMap" text="Map" />
+            </items>
+          </Menu>
+          <Menu fx:id="orderButton" disable="true" mnemonicParsing="false" text="Order">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onNewOrderClicked" text="New Order" />
+               </items></Menu>
+            <Menu fx:id="itemsButton" disable="true" mnemonicParsing="false" text="Items">
+               <items>
+                  <MenuItem fx:id="updateItemPriceButton" mnemonicParsing="false" onAction="#updateItemPriceInStore" text="Update item price" />
+                  <MenuItem fx:id="deleteItemButton" mnemonicParsing="false" onAction="#deleteItemFromStore" text="Delete item" />
+                  <MenuItem fx:id="addItemButton" mnemonicParsing="false" onAction="#addItemToStore" text="Add item" />
+               </items>
+            </Menu>
+            <Menu fx:id="dealsButton" disable="true" mnemonicParsing="false" text="Deals">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onAddDealPressed" text="Add Deal" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Style">
+              <items>
+                  <RadioMenuItem fx:id="darkModeButton" mnemonicParsing="false" onAction="#onDarkModeSelected" selected="true" text="Dark Mode">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="styleToggleGroup" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="blueModeButton" mnemonicParsing="false" onAction="#onBlueModeSelected" text="Blue Mode" toggleGroup="$styleToggleGroup" />
+                  <RadioMenuItem fx:id="lightModeButton" mnemonicParsing="false" onAction="#onLightModeSelected" text="Light Mode" toggleGroup="$styleToggleGroup" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+         <content>
+            <VBox alignment="TOP_CENTER" spacing="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Welcome To Super Duper Market!">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="500.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../GUI/Resources/cartIcon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </VBox>
+         </content></ScrollPane>
+   </center>
+</BorderPane>

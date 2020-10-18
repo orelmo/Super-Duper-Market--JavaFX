@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: GUI.GUI
+Class-Path: Conteiners.jar SDM_Engine.jar
+

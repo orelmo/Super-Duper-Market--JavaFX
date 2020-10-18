@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Conteiners/Conteiners.iml" filepath="$PROJECT_DIR$/Conteiners/Conteiners.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaFX/JavaFX.iml" filepath="$PROJECT_DIR$/JavaFX/JavaFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SDM_Engine/SDM_Engine.iml" filepath="$PROJECT_DIR$/SDM_Engine/SDM_Engine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Super Duper Market - 1.iml" filepath="$PROJECT_DIR$/Super Duper Market - 1.iml" />
+    </modules>
+  </component>
+</project>

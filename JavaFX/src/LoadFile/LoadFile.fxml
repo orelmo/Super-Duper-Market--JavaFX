@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadFile.LoadFileController">
+   <content>
+      <BorderPane minWidth="500.0">
+         <center>
+            <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="progressLabel" text="Progress: " />
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="418.0" progress="0.0" />
+                        <Label fx:id="percentLabel" text="\%" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <top>
+            <Text styleClass="header" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading XML File" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </top>
+      </BorderPane>
+   </content>
+</ScrollPane>
